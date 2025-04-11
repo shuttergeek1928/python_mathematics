@@ -27,7 +27,7 @@ pipeline {
         stage('Deploy to Staging') {
             steps {
                 sh 'echo "Deploying to staging..."'
-                sg 'mkdir deployment/staging/'
+                sh 'mkdir deployment/staging/'
                 sh 'cp -r * /deployment/staging/python_mathematics/'
                 sh 'echo "Deployed to staging at deployment/staging/python_mathematics"'
             }
