@@ -25,9 +25,6 @@ pipeline {
             }
         }
         stage('Deploy to Staging') {
-            when {
-                branch 'origin/master'
-            }
             steps {
                 sh 'mkdir -p staging/python_mathematics && cp -r * staging/python_mathematics/'
                 sh 'echo "Deployed to staging at staging/python_mathematics"'
