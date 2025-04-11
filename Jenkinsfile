@@ -27,8 +27,7 @@ pipeline {
         stage('Deploy to Staging') {
             steps {
                 sh 'echo "Deploying to staging..."'
-                sh 'mkdir deployment/staging/'
-                sh 'cp -r * /deployment/staging/python_mathematics/'
+                sh 'cp -r * C:/Users/atish/JenkinsDeployment'
                 sh 'echo "Deployed to staging at deployment/staging/python_mathematics"'
             }
         }
