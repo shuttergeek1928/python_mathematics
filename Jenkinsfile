@@ -1,6 +1,26 @@
 pipeline {
-    agent any
+    agent {
+        label 'slave' // Replace 'slave-node' with the label of your slave node
+    }
     stages {
+        stage('Ensure Slave Node is Running') {
+            steps {
+                script {
+                    def nodeName = 'slave-node' // Replace with your slave node's name
+                    def node = Jenkins.instance.getNode(nodeName)
+                    if (node && !node.toComputer().isOnline()) {
+                        echo "Starting slave node: ${nodeName}"
+                        node.toComputer().connect(false) // Attempt to connect the node
+                        sleep 10 // Wait for the node to come online
+                        if (!node.toComputer().isOnline()) {
+                            error "Failed to bring slave node ${nodeName} online"
+                        }
+                    } else {
+                        echo "Slave node ${nodeName} is already online"
+                    }
+                }
+            }
+        }
         stage('Checkout') {
             steps {
                 git 'https://github.com/shuttergeek1928/python_mathematics.git'
