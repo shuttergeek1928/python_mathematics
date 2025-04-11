@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'python -m unittest tests\test_main.py'
+                sh 'python -m unittest discover -s src/tests'
             }
         }
         stage('Deploy to Staging') {
