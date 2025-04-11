@@ -27,10 +27,8 @@ pipeline {
         stage('Deploy to Staging') {
             steps {
                 sh 'echo "Deploying to staging..."'
-                sh 'echo "Current DIR: $(dir)"' // Print the current working directory
-                sh 'directory=$(pwd) && echo "Current directory: $directory"'
-                sh 'ls -l' // List files in the current directory
-                sh 'mkdir -p staging/python_mathematics && cp -r * /deployment/staging/python_mathematics/'
+                sg 'mkdir deployment/staging/'
+                sh 'cp -r * /deployment/staging/python_mathematics/'
                 sh 'echo "Deployed to staging at deployment/staging/python_mathematics"'
             }
         }
