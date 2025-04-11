@@ -26,8 +26,8 @@ pipeline {
         }
         stage('Deploy to Staging') {
             steps {
-                sh 'mkdir -p staging/python_mathematics && cp -r * staging/python_mathematics/'
-                sh 'echo "Deployed to staging at staging/python_mathematics"'
+                sh 'mkdir -p staging/python_mathematics && cp -r * deployment/staging/python_mathematics/'
+                sh 'echo "Deployed to staging at deployment/staging/python_mathematics"'
             }
         }
         stage('Deploy to Production') {
