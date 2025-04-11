@@ -28,16 +28,14 @@ pipeline {
             steps {
                 sh 'echo "Deploying to staging..."'
                 sh 'cp -r * C:/Users/atish/JenkinsDeployment'
-                sh 'echo "Deployed to staging at deployment/staging/python_mathematics"'
+                sh 'echo "Deployed to staging at JenkinsDeployment/python_mathematics"'
             }
         }
         stage('Deploy to Production') {
-            when {
-                branch 'release'
-            }
             steps {
-                sh 'mkdir -p production/python_mathematics && cp -r * production/python_mathematics/'
-                sh 'echo "Deployed to production at production/python_mathematics"'
+                sh 'echo "Deploying to production..."'
+                sh 'cp -r * C:/Users/atish/JenkinsProdDeployment'
+                sh 'echo "Deployed to production at JenkinsProdDeployment/python_mathematics"'
             }
         }
     }
