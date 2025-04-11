@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'slave' // Replace 'slave-node' with the label of your slave node
+        label 'slave-node' // Replace 'slave-node' with the label of your slave node
     }
     stages {
         stage('Ensure Slave Node is Running') {
