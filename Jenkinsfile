@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/yourusername/python_mathematics.git'
+                git 'https://github.com/shuttergeek1928/python_mathematics.git'
             }
         }
         stage('Install Dependencies') {
@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'python -m unittest discover -s src/tests'
+                sh 'python -m unittest discover -s tests'
             }
         }
         stage('Deploy to Staging') {
